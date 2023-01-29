@@ -16,3 +16,23 @@ Requirements:
 `play.py` file offers the possibility to play a trained agent. It also renders the state before the agent's turn so cheating is possible if beating your PC in a card game is all you ever wanted.
 
 `test_envs.py` tests the environments' consistency with the respective APIs.
+
+## Observation space
+
+Observation space is `Box(0,1,(24,),float64)` where first and second octet represents the cards in the player's hand and the third octet shows the probability if each of 8 cards being in the opponent's hand. (If the opponent's hand is known, one of the cards has probability 1 and the rest 0.)
+
+## Action space
+
+Action space is `Discrete(15)` described as follows:
+
+| # | Action |
+| --- | --- |
+| 0 - 6 | Play Guard and guess corresponding card (0=Priest, 6=Princess) |
+| 7 | Play Priest |
+| 8 | Play Baron |
+| 9 | Play Handmaid |
+| 10 | Play Prince targetting the opponent |
+| 11 | Play Prince targetting myself |
+| 12 | Play King |
+| 13 | Play Countess |
+| 14 | Play Princess |
